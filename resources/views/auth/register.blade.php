@@ -16,7 +16,7 @@
         @csrf
         <div class="form-group label-floating">
             <label class="control-label">نام</label>
-            <input class="form-control" name="name" placeholder="" type="email">
+            <input class="form-control" name="name" placeholder="" type="name">
         </div>
           <div class="form-group label-floating">
               <label class="control-label">ایمیل</label>
@@ -34,7 +34,7 @@
 
           
           
-        <a href="01-home.html" class="btn btn-lg btn-primary full-width">ثبت نام</a>
+        <button type="submit" class="btn btn-lg btn-primary full-widt">ثبت نام</button>
 
         <div class="or"></div>
 
