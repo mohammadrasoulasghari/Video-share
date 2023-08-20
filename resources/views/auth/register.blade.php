@@ -29,7 +29,7 @@
               <input class="form-control" placeholder="" name="password_confirmation" type="password">
           </div>
 
-         
+          
           
           <div class="remember">
               <div class="checkbox">

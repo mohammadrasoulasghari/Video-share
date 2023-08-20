@@ -7,7 +7,7 @@
             <a href="{{route('videos.show',$video->slug)}}"><img src="{{$video->thumnail}}" alt=""></a>
         </div>
         <a href="{{route('videos.show',$video->slug)}}" class="title">{{$video->name}}</a>
-        <a class="channel-name" href="#">{{$video->name}}<span>
+        <a class="channel-name" href="#">{{$video->owner_name}}<span>
                 <i class="fa fa-check-circle"></i></span></a>
     </div>
     <!-- // video item -->

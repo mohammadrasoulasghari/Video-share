@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\CategoryVideoController;
+use App\Mail\VerifyEmail;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +43,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/email',function(){
+    
+    return new VerifyEmail;
+});

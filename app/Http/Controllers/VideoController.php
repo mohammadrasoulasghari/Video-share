@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateVideoRequest;
 use App\Models\Category;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
 {
@@ -27,6 +28,7 @@ class VideoController extends Controller
 
     public function store(StoreVideoRequest $request)
     {
+        $request->user()->videos()->create($request->all());
         Video::create($request->all());
         return redirect()->route('index')->with('alert',__('massage.succes'));
     }

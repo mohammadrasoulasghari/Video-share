@@ -9,6 +9,9 @@
       </div>
       
       <div class="form-output">
+        <x-validation-error>
+
+        </x-validation-error>
           <form action="{{ route('login.store') }}" method="POST">
             @csrf
               <div class="form-group label-floating">
@@ -20,7 +23,12 @@
                   <input class="form-control" placeholder="" name="password" type="password">
               </div>
               
-              
+              <div class="checkbox">
+            <label>
+                <input name="remember" type="checkbox">
+                    مرا به خاطر بسپار
+            </label>
+        </div>
               
               <button type="submit" class="btn btn-lg btn-primary full-width">login</button>
               <p>آیا شما یک حساب کاربری ندارید؟ <a href="{{ route('register.create') }}">ثبت نام کنید!</a> </p>

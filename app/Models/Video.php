@@ -35,8 +35,20 @@ class Video extends Model
   {
     return $this->belongsTo(Category::class);
   }
-  public function getCategoryNameAttribute()
+  public function getCategoryNameAttribute()  
   {
     return $this->categori?->name;
+  }
+  public function user()
+  {
+    return $this->belongsTo(User::class);
+  }
+  public function getOwnerNameAttribute()
+  {
+    return $this->user?->name;
+  }
+  public function getOwnerAvatarAttribute()
+  {
+    return $this->user->gravatar;
   }
 }
