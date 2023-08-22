@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\CheckEmail;
 use App\Http\Requests\StoreVideoRequest;
 use App\Http\Requests\UpdateVideoRequest;
 use App\Models\Category;
@@ -11,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
 {
+    public function __construct()
+    {
+     $this->middleware(CheckEmail::class);   
+    }
     public function index()
     {
         $videos = Video::all();

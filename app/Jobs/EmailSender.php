@@ -10,7 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 
-class ProcessVideo implements ShouldQueue
+class EmailSender implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -19,8 +19,7 @@ class ProcessVideo implements ShouldQueue
      */
     public function __construct()
     {
-        $this->onQueue('low');
-        
+        $this->onQueue('high');
     }
 
     /**
@@ -28,8 +27,8 @@ class ProcessVideo implements ShouldQueue
      */
     public function handle(): void
     {
-        Mail::raw('verify email',function ($message) {
-            $message->to('mohammadrasoulasghari1@gmail.com');
+        Mail::raw('email sender',function($message){
+           $message->to('mohammadrasoulasghari1@gmail.com');
         });
     }
 }
