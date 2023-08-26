@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\CategoryVideoController;
+use App\Http\Controllers\CommentsController;
 use App\Jobs\EmailSender;
 use App\Jobs\ProcessVideo;
 use App\Mail\VerifyEmail;
@@ -33,7 +34,7 @@ Route::post('/videos/{video}', [VideoController::class, 'update'])->name('videos
 
 Route::get('/categories/{category:slug}/videos', [CategoryVideoController::class, 'index'])->name('categories.videos.index');
 
-
+Route::post('/videos/{video}/comments',[CommentsController::class,'store'])->name('comments.store');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

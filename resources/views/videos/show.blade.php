@@ -65,7 +65,7 @@
                                 <a href="#"><img src="demo_img/c1.jpg" alt=""></a>
                             </div>
                             <a href="#" class="author-name">{{$video->name}}</a>
-                            <time datetime="2017-03-24T18:18">مرداد 27, 1397 - 11:00</time>
+                            <time datetime="2017-03-24T18:18">{{ $video->created_at }}</time>
                         </div>
                         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
                             گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
@@ -91,12 +91,10 @@
 
 
                 <h3 class="post-box-title">ارسال نظرات</h3>
-                <form>
-                    <input type="text" class="form-control" id="Name" placeholder="نام">
-                    <input type="email" class="form-control" id="Email" placeholder="ایمیل">
-                    <input type="text" class="form-control" placeholder="سایت">
-                    <textarea class="form-control" rows="8" id="Message" placeholder="پیام"></textarea>
-                    <button type="button" id="contact_submit" class="btn btn-dm">ارسال پیام</button>
+                <form action="{{ route('comments.store',$video) }}" method="POST">
+                    @csrf
+                    <textarea class="form-control" rows="8" name="body" id="Message" placeholder="پیام"></textarea>
+                    <button  id="contact_submit" class="btn btn-dm">ارسال پیام</button>
                 </form>
             </div>
             <!-- // Comments -->

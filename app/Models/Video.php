@@ -53,6 +53,6 @@ class Video extends Model
   }
   public function comments()
   {
-    return $this->hasMany(Comments::class);
+    return $this->hasMany(Comments::class)->orderBy('created_at','desc');
   }
 }

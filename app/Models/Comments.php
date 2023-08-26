@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Comments extends Model
 {
     use HasFactory; 
-    
+    protected $fillable =['body','user_id'];
     public function video()
     {
         return $this->belongsTo(video::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
