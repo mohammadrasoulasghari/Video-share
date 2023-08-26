@@ -44,13 +44,19 @@ class User extends Authenticatable
     ];
     public function getGravatarAttribute()
     {
-        $hash=md5(strtolower($this->attributes['email']));
-        return "https://s.gravatar.com/avatar/$hash?s=80";
-
+        $hash = md5(strtolower($this->attributes['email']));
+        return "http://s.gravatar.com/avatar/$hash";
     }
     public function videos()
     {
         return $this->hasMany(Video::class);
     }
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function comments()
+  {
+    return $this->hasMany(Comments::class);
+  }
 }

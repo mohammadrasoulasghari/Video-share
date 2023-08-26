@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comments extends Model
 {
-    use HasFactory;
+    use HasFactory; 
+    
+    public function video()
+    {
+        return $this->belongsTo(video::class);
+    }
 }

@@ -49,6 +49,10 @@ class Video extends Model
   }
   public function getOwnerAvatarAttribute()
   {
-    return $this->user->gravatar;
+    return $this->user?->gravatar;
+  }
+  public function comments()
+  {
+    return $this->hasMany(Comments::class);
   }
 }
