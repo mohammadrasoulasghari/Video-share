@@ -54,7 +54,9 @@
             </div>
             <!-- // Chanels Item -->
 
-
+            <x-validation-error>
+    
+            </x-validation-error>
             <!-- Comments -->
             <div id="comments" class="post-comments">
                 <h3 class="post-box-title"><span>{{ $video->comments->count() }}</span> نظرات</h3>
@@ -67,8 +69,8 @@
                             <a href="#" class="author-name">{{$video->name}}</a>
                             <time datetime="2017-03-24T18:18">{{ $video->created_at }}</time>
                         </div>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                            گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
+                        <p>
+                            {{ $video->description }}
                         </p>
                         <a href="#" class="reply">پاسخ</a>
                     </li>
@@ -91,11 +93,16 @@
 
 
                 <h3 class="post-box-title">ارسال نظرات</h3>
+                @auth
+                    
+                
                 <form action="{{ route('comments.store',$video) }}" method="POST">
+
                     @csrf
                     <textarea class="form-control" rows="8" name="body" id="Message" placeholder="پیام"></textarea>
                     <button  id="contact_submit" class="btn btn-dm">ارسال پیام</button>
                 </form>
+                @endauth
             </div>
             <!-- // Comments -->
 
