@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Traits\likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Comments extends Model
 {
-    use HasFactory; 
+    use HasFactory,likeable; 
     protected $fillable =['body','user_id'];
     public function video()
     {
@@ -17,4 +18,5 @@ class Comments extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
 }

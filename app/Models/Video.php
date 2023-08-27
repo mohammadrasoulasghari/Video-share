@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Hekmatinasser\Verta\Verta;
@@ -10,7 +11,7 @@ use Hekmatinasser\Verta\Verta;
 class Video extends Model
 {
 //  protected $perPage=1;
-  use HasFactory;
+  use HasFactory,likeable;
   protected $fillable = [
     'name', 'url', 'thumnail', 'slug', 'length', 'description', 'category_id'
   ];
@@ -55,4 +56,5 @@ class Video extends Model
   {
     return $this->hasMany(Comments::class)->orderBy('created_at','desc');
   }
+  
 }
