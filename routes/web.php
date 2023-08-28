@@ -6,6 +6,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\CategoryVideoController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\LikeController;
 use App\Jobs\EmailSender;
 use App\Jobs\ProcessVideo;
 use App\Mail\VerifyEmail;
@@ -21,6 +22,7 @@ use App\Models\User;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
 
@@ -34,7 +36,10 @@ Route::post('/videos/{video}', [VideoController::class, 'update'])->name('videos
 
 Route::get('/categories/{category:slug}/videos', [CategoryVideoController::class, 'index'])->name('categories.videos.index');
 
-Route::post('/videos/{video}/comments',[CommentsController::class,'store'])->name('comments.store');
+Route::post('/videos/{video}/comments', [CommentsController::class, 'store'])->name('comments.store');
+Route::get('/{likeable_type}/{comment}/like', [LikeController::class, 'store'])->name('videos.like');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -45,10 +50,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::get('/email',function(){
-    
+Route::get('/email', function () {
+
     return new VerifyEmail;
 });
 Route::get('/jobs', function () {

@@ -1,10 +1,20 @@
 <?php
 namespace App\Models\Traits;
 
-trait likeable{
+use App\Models\Like;
 
-                 public function likes()
+trait Likeable{
+
+    public function likes()
     {
         return $this->morphMany(Like::class,'likeable');
+    }
+    public function getLikeCountAttribute()
+    {
+        return $this->likes()->where('vote',1)->count();
+    }
+    public function getDisLikeCountAttribute()
+    {
+        return $this->likes()->where('vote',1)->count();
     }
 }
