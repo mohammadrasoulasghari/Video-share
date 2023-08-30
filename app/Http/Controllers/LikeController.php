@@ -7,13 +7,19 @@ use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
-    public function store(Request $request,Video $video)
+    public function store(Request $request,string $likeable_type,$likeable_id)
     {
         
-        $video->likes()->create([
-           'user_id' => auth()->id(),
-           'vote' =>1,
-        ]);
-        return redirect()->back()->with('alert',__("massage.successfuly-like"));
+       
+    
+       $likeable_id->likes()->create([
+              'user_id' => auth()->id(),
+          'vote' =>1,
+       ]);
+       return redirect()->back();
+        
+        
+        
+        
     }
 }

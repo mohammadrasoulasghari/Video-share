@@ -37,7 +37,7 @@ Route::post('/videos/{video}', [VideoController::class, 'update'])->name('videos
 Route::get('/categories/{category:slug}/videos', [CategoryVideoController::class, 'index'])->name('categories.videos.index');
 
 Route::post('/videos/{video}/comments', [CommentsController::class, 'store'])->name('comments.store');
-Route::get('/{likeable_type}/{comment}/like', [LikeController::class, 'store'])->name('videos.like');
+Route::get('/{likeable_type}/{likeable_id}/like', [LikeController::class, 'store'])->name('likes.store');
 
 
 Route::get('/dashboard', function () {
