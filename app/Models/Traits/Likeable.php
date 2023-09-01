@@ -2,6 +2,7 @@
 namespace App\Models\Traits;
 
 use App\Models\Like;
+use App\Models\User;
 
 trait Likeable{
 
@@ -16,5 +17,30 @@ trait Likeable{
     public function getDisLikeCountAttribute()
     {
         return $this->likes()->where('vote',1)->count();
+    }
+    public function likedBy(User $user)
+    {
+        if ($this->isLikedBy($user)) return;
+        return $this->likes()->create([
+            'vote' => 1,
+            'user_id' => $user->id
+        ]);
+    }
+    public function DislikedBy(User $user)
+    {
+        if ($this->isDisLikedBy($user)) return;
+
+        return $this->likes()->create([
+            'vote' => -1,
+            'user_id' => $user->id
+        ]);
+    }
+    public function isLikedBy(User $user)
+    {
+        return $this->likes()->where('vote',1)->where('user_id',$user->id)->exists();
+    }
+    public function isDisLikedBy(User $user)
+    {
+        return $this->likes()->where('vote',-1)->where('user_id',$user->id)->exists(); 
     }
 }
