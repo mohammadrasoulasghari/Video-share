@@ -9,7 +9,7 @@
         <!-- upload -->
         <div class="col-md-8">
             <h1 class="page-title"><span>آپلود</span> ویدیو</h1>
-            <form action="{{route('videos.store')}}" method="post">
+            <form action="{{route('videos.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-6">
                         <label>آدرس ویدیو</label>
-                        <input type="text" name="url" value="{{old('url')}}"  class="form-control" placeholder="آدرس ویدیو">
+                        <input type="file" name="file" id="">
                     </div>
                     <div class="col-md-6">
                         <label>تصویر بند‌انگشتی</label>

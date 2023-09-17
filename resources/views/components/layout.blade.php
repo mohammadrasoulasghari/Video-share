@@ -66,7 +66,7 @@
                                                                                                       </a>
                                                                                                       <ul class="dropdown-menu account-menu">
                                                                                                                        <li><a href="#"><i class="fa fa-edit color-1"></i>ویرایش پروفایل</a></li>
-                                                                                                                       <li><a href="#"><i class="fa fa-video-camera color-2"></i>اضافه کردن فیلم</a></li>
+                                                                                                                       <li><a href=""><i class="fa fa-video-camera color-2"></i>اضافه کردن فیلم</a></li>
                                                                                                                        <li><a href="#"><i class="fa fa-star color-3"></i>برگزیده</a></li>
                                                                                                                        <li><a href="#"><i class="fa fa-sign-out color-4"></i>خروج</a></li>
                                                                                                       </ul>

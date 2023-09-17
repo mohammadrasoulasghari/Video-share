@@ -12,7 +12,7 @@ class LikeObserver
      */
     public function created(Like $like)
     {
-        $like->likable->user->notify(new ResourceWasLiked($like->likable));
+        $like->likeable->user->notify(new ResourceWasLiked($like->likable));
     }
 
     /**

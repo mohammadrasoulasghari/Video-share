@@ -27,9 +27,9 @@ class StoreVideoRequest extends FormRequest
             'name' => ['required'],
             'length' => ['required', 'integer'],
             'slug' => ['required', 'unique:videos,slug','alpha-dash'],
-            'url' => ['required', 'url'],
             'thumnail' => ['required', 'url'],
-            'category_id'=> ['required','exists:category,id' ]
+            'category_id'=> ['required','exists:category,id' ],
+            'file'=>['required','file','mimetypes:video/mp4']
 
         ];
     }

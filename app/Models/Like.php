@@ -10,7 +10,7 @@ class Like extends Model
     use HasFactory;
     public $fillable =['user_id','vote'];
 
-    public function likable()
+    public function likeable()
     {
         return $this->morphTo();
     }

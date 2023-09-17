@@ -24,5 +24,13 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "desandro-matches-selector": "^2.0.2",
+        "ev-emitter": "^2.1.2",
+        "fizzy-ui-utils": "^3.0.0",
+        "get-size": "^3.0.0",
+        "jquery": "^3.7.1",
+        "outlayer": "^2.1.1"
+    }
 }
